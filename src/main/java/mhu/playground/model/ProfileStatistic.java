@@ -14,6 +14,22 @@ public class ProfileStatistic {
 		this.totalDuration = 0;
 	}
 
+	public int getCounter() {
+		return counter;
+	}
+
+	public double getMinDuration() {
+		return minDuration;
+	}
+
+	public double getMaxDuration() {
+		return maxDuration;
+	}
+
+	public double getTotalDuration() {
+		return totalDuration;
+	}
+
 	public ProfileStatistic(double duration) {
 		this.counter = 1;
 		this.minDuration = duration;
