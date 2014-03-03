@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.table.TableColumn;
 
 import mhu.playground.model.ProfileStatistic;
 
@@ -103,16 +104,20 @@ public class Gui extends JFrame {
 
 		List<Object[]> dataList = new ArrayList<Object[]>();
 
+		int columnWitdh = 0;
 		for (String key : profileLogParser.getMap().keySet()) {
 			ProfileStatistic profileStatistic = profileLogParser.getMap().get(
 					key);
 
+			String functionName = key.split(" ")[2];
+			if (columnWitdh < functionName.length()) {
+				columnWitdh = functionName.length();
+			}
 			Object[] aRow = { profileStatistic.getCounter(),
 					String.format("%.6f", profileStatistic.getMinDuration()),
 					String.format("%.6f", profileStatistic.getMaxDuration()),
 					String.format("%.6f", profileStatistic.getTotalDuration()),
-					String.format("%.6f", profileStatistic.avg()),
-					key.split(" ")[2] };
+					String.format("%.6f", profileStatistic.avg()), functionName };
 
 			dataList.add(aRow);
 		}
@@ -125,6 +130,10 @@ public class Gui extends JFrame {
 		JXTable table = new JXTable(data, columnNames);
 
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+		TableColumn column = table
+				.getColumn(columnNames[columnNames.length - 1]);
+		System.out.println(columnWitdh);
+		column.setPreferredWidth(columnWitdh * 6);
 
 		return table;
 	}
