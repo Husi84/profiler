@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -30,7 +29,6 @@ public class Gui extends JFrame {
 	private static final String PROGRAMM_NAME = "Programm Parser";
 
 	private static final long serialVersionUID = 8527661613228247098L;
-	private JButton openButton;
 	private JFileChooser fc = new JFileChooser();
 
 	private ProfileLogParser profileLogParser;
@@ -198,7 +196,6 @@ public class Gui extends JFrame {
 					Gui.this.pack();
 					Gui.this.setSize(size);
 				}
-				// Handle save button action.
 			}
 
 		}
