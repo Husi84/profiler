@@ -15,7 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
@@ -26,7 +25,7 @@ import mhu.playground.model.ProfileStatistic;
 
 import org.jdesktop.swingx.JXTable;
 
-public class Gui extends JFrame implements ActionListener {
+public class Gui extends JFrame {
 
 	private static final String PROGRAMM_NAME = "Programm Parser";
 
@@ -64,32 +63,6 @@ public class Gui extends JFrame implements ActionListener {
 		buildMenu();
 
 		profileLogParser = new ProfileLogParser(new File("profile.txt"));
-
-		JPanel panel = new JPanel();
-		// getContentPane().add(panel);
-		panel.setLayout(null);
-
-		// // Create a file chooser
-		// fc = new JFileChooser();
-		//
-		// // Create the open button. We use the image from the JLF
-		// // Graphics Repository (but we extracted it from the jar).
-		// openButton = new JButton("Open a File...");
-		// openButton.setBounds(50, 60, 80, 30);
-		// openButton.addActionListener(this);
-		//
-		// JButton quitButton = new JButton("Quit");
-		// quitButton.setBounds(150, 60, 80, 30);
-		//
-		// quitButton.addActionListener(new ActionListener() {
-		// @Override
-		// public void actionPerformed(ActionEvent event) {
-		// System.exit(0);
-		// }
-		// });
-		//
-		// panel.add(openButton);
-		// panel.add(quitButton);
 
 		buildTable = buildTable();
 
@@ -156,21 +129,6 @@ public class Gui extends JFrame implements ActionListener {
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
 		return table;
-	}
-
-	public void actionPerformed(ActionEvent e) {
-
-		// Handle open button action.
-		if (e.getSource() == openButton) {
-			int returnVal = fc.showOpenDialog(Gui.this);
-
-			if (returnVal == JFileChooser.APPROVE_OPTION) {
-				File file = fc.getSelectedFile();
-				profileLogParser = new ProfileLogParser(file, new File(
-						"testOutput.csv"));
-			}
-			// Handle save button action.
-		}
 	}
 
 	/** Returns an ImageIcon, or null if the path was invalid. */
