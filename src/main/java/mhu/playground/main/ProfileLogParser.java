@@ -14,7 +14,7 @@ import mhu.playground.model.ProfileStatistic;
 
 public class ProfileLogParser {
 
-	private static HashMap<String, ProfileStatistic> map = new HashMap<String, ProfileStatistic>();
+	private HashMap<String, ProfileStatistic> map = new HashMap<String, ProfileStatistic>();
 
 	public ProfileLogParser(File inputFile) {
 		try {
@@ -101,7 +101,7 @@ public class ProfileLogParser {
 		}
 	}
 
-	private void writeOutputFile(File outputfile) throws IOException {
+	public void writeOutputFile(File outputfile) throws IOException {
 		PrintWriter pW = new PrintWriter(outputfile);
 
 		pW.println("Count;min;max;total;avg;funktion");
@@ -111,7 +111,7 @@ public class ProfileLogParser {
 		pW.close();
 	}
 
-	public static HashMap<String, ProfileStatistic> getMap() {
+	public HashMap<String, ProfileStatistic> getMap() {
 		return map;
 	}
 }
