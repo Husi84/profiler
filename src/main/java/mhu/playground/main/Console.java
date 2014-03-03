@@ -1,6 +1,6 @@
 package mhu.playground.main;
 
-public class Main {
+public class Console {
 
 	@SuppressWarnings("unused")
 	private static final String OUTPUT_CSV_FILE = "profile.csv";
